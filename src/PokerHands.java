@@ -158,7 +158,7 @@ public class PokerHands {
     }
 
     private String settleTie() {
-        for (int i = 0; i < numberOfCards; i++) {
+        for (int i = numberOfCards - 1; i >= 0; i--) {
             if (player1.getValueAt(i) != player2.getValueAt(i))
                 return player1.getValueAt(i) > player2.getValueAt(i) ? "Black wins" : "White wins";
         }
@@ -214,4 +214,13 @@ public class PokerHands {
 
     }
 
+    public String getWinnerHighCard() {
+        if(getWinnerCombination() == 1 || (player1.getCombination() == 6 && player2.getCombination() ==6)){
+            for (int i = numberOfCards - 1; i >= 0; i--) {
+                if(player1.getValueAt(i) != player2.getValueAt(i))
+                    return "" + (player1.getValueAt(i) > player2.getValueAt(i) ? player1.getValueAt(i): player2.getValueAt(i));
+            }
+        }
+        return "";
+    }
 }

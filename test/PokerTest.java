@@ -222,10 +222,19 @@ public class PokerTest {
 
     @Test
     public void givenPokerHandCallWinnerFunctionThenDisplayResult() {
-        String hand = "Black: AS KS QS JS 9S White: AD KD QD JD 8D";
+        String hand = "Black: 3H 4D 5S 9C KD White: 3C 4H 5S 9C KH";
         PokerHands sut = new PokerHands(hand);
         sut.evaluateHand();
-        System.out.println(sut.getWinner()+ "  " + sut.getWinnerCombinationName());
+        System.out.println(sut.getWinner()+ "  " + sut.getWinnerCombinationName() + " " + sut.getWinnerHighCard());
     }
+
+    @Test
+    public void givenPokerHandsCallGetWinnerHighCardThenReturnWinnerHighCard() {
+        String hand = "Black: 3H 4D 5S 9C KD White: 3C 4H 5S 9C KH";
+        PokerHands sut = new PokerHands(hand);
+        sut.evaluateHand();
+        assertEquals("", sut.getWinnerHighCard());
+    }
+
 
 }
