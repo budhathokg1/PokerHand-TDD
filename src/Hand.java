@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Hand {
     private ArrayList<Card> cards;
 
-    int combination;
-    int highCard;
+    private int combination;
+    private int highCard;
 
     public Hand(String[] input) {
         cards = new ArrayList<>(5);
@@ -16,10 +16,10 @@ public class Hand {
     private void sort(ArrayList<Card> cards) {
         for (int i = 0; i < this.cards.size(); i++) {
             int indexOfMin = i;
-            int min = getValue(i);
+            int min = getValueAt(i);
             for (int j = i+1; j < this.cards.size(); j++) {
-                if(getValue(j) < min) {
-                    min = getValue(j);
+                if(getValueAt(j) < min) {
+                    min = getValueAt(j);
                     indexOfMin = j;
                 }
 
@@ -31,12 +31,12 @@ public class Hand {
     }
 
 
-    public char getSuit(int card) {
+    public char getSuitAt(int card) {
 
         return getCard(card).getSuit();
     }
 
-    public int getValue(int card) {
+    public int getValueAt(int card) {
         return getCard(card).getValue();
     }
 
